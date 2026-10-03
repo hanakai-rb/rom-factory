@@ -250,6 +250,7 @@ module ROM
         DSL.new(
           name,
           attributes: parent.attributes,
+          traits: parent.traits,
           relation: relation,
           factories: self,
           struct_namespace: namespace,
