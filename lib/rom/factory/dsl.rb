@@ -52,13 +52,13 @@ module ROM
 
       # @api private
       def initialize(name, relation:, factories:, struct_namespace:, attributes: AttributeRegistry.new,
-                     transient: false)
+                     traits: {}, transient: false)
         @_name = name
         @_relation = relation
         @_factories = factories
         @_struct_namespace = struct_namespace
         @_attributes = attributes.dup
-        @_traits = {}
+        @_traits = traits.dup
         @_valid_names = _relation.schema.attributes.map(&:name)
         @_transient = transient
         yield(self)

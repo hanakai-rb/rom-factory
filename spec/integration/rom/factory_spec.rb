@@ -753,6 +753,42 @@ RSpec.describe ROM::Factory do
   end
 
   context "inheritance" do
+    context "with traits defined by the parent factory" do
+      before do
+        factories.define(:user) do |f|
+          f.first_name "Jane"
+          f.last_name "Doe"
+          f.email "jane@doe.org"
+          f.timestamps
+
+          f.trait :admin do |t|
+            t.first_name "Admin Jane"
+            t.email "admin@doe.org"
+          end
+        end
+
+        factories.define(jane: :user) do |f|
+          f.first_name "Jane Doe"
+        end
+      end
+
+      context "using in-memory structs" do
+        it "makes traits defined by the parent factory available" do
+          expect(factories.structs[:user, :admin].first_name).to eql("Admin Jane")
+          expect(factories.structs[:jane, :admin].first_name).to eql("Admin Jane")
+          expect(factories.structs[:jane, :admin].email).to eql("admin@doe.org")
+        end
+      end
+
+      context "using persistable structs" do
+        it "makes traits defined by the parent factory available" do
+          expect(factories[:user, :admin].first_name).to eql("Admin Jane")
+          expect(factories[:jane, :admin].first_name).to eql("Admin Jane")
+          expect(factories[:jane, :admin].email).to eql("admin@doe.org")
+        end
+      end
+    end
+
     context "without struct_namespace option" do
       before do
         factories.define(:user, &:timestamps)

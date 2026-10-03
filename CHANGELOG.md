@@ -17,6 +17,8 @@ and this project adheres to [Break Versioning](https://www.taoensso.com/break-ve
 
 ### Fixed
 
+- Child factories inherit traits from parent. (@alassek in #100)
+
 ### Security
 
 [Unreleased]: https://github.com/rom-rb/rom-factory/compare/v0.14.0...main
