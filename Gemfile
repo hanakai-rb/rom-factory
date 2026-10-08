@@ -12,7 +12,7 @@ gem "rspec", "~> 3.0"
 
 gem "dotenv"
 
-git "https://github.com/rom-rb/rom.git", branch: "release-5.4" do
+git "https://github.com/hanakai-rb/rom", branch: "main" do
   gem "rom"
   gem "rom-changeset"
   gem "rom-core"
@@ -26,7 +26,7 @@ group :test do
     gem "pry"
     gem "pry-byebug", "~> 3.8", platforms: :ruby
   end
-  gem "rom-sql", github: "rom-rb/rom-sql", branch: "release-3.7"
+  gem "rom-sql", github: "hanakai-rb/rom-sql", branch: "main"
 
   gem "jdbc-postgres", platforms: :jruby
   gem "pg", "~> 1.5", platforms: :ruby
