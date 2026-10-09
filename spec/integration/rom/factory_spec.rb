@@ -26,7 +26,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user) do |f|
         f.first_name "Jane"
         f.last_name "Doe"
-        f.email "jane@doe.org"
+        f.email "jane.doe@example.com"
         f.timestamps
       end
 
@@ -56,7 +56,7 @@ RSpec.describe ROM::Factory do
         factories.define(:user) do |f|
           f.first_name "Jane"
           f.last_name "Doe"
-          f.email "jane@doe.org"
+          f.email "jane.doe@example.com"
           f.timestamps
           f.association(:tasks, count: 2)
         end
@@ -93,7 +93,7 @@ RSpec.describe ROM::Factory do
 
       it "does not pass provided attributes into associations" do
         expect {
-          build(:user, email: "jane@doe.com")
+          build(:user, email: "jane.doe@example.com")
         }.not_to raise_error
       end
     end
@@ -109,7 +109,7 @@ RSpec.describe ROM::Factory do
           factories.define(:user) do |f|
             f.first_name "Jane"
             f.last_name "Doe"
-            f.email "janjiss@gmail.com"
+            f.email "jane.doe@example.com"
             f.timestamps
 
             f.association(:tasks)
@@ -152,7 +152,7 @@ RSpec.describe ROM::Factory do
           factories.define(:user) do |f|
             f.first_name "Jane"
             f.last_name "Doe"
-            f.email "janjiss@gmail.com"
+            f.email "jane.doe@example.com"
             f.timestamps
 
             f.association(:tasks)
@@ -207,7 +207,7 @@ RSpec.describe ROM::Factory do
         factories.define(:user) do |f|
           f.first_name "Janis"
           f.last_name "Miezitis"
-          f.email "janjiss@gmail.com"
+          f.email "jane.doe@example.com"
           f.timestamps
 
           f.association :address
@@ -409,7 +409,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user) do |f|
         f.first_name "Janis"
         f.last_name "Miezitis"
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.timestamps
       end
 
@@ -433,7 +433,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user, relation: :users) do |f|
         f.first_name "Janis"
         f.last_name "Miezitis"
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.created_at Time.now
         f.updated_at Time.now
       end
@@ -447,7 +447,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user, relation: :users) do |f|
         f.first_name "Janis"
         f.last_name "Miezitis"
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.created_at { Time.now }
         f.updated_at { Time.now }
       end
@@ -489,7 +489,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user, relation: :users) do |f|
         f.first_name "Janis"
         f.last_name "Miezitis"
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.created_at Time.now
         f.updated_at Time.now
       end
@@ -503,7 +503,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user, relation: :users) do |f|
         f.first_name "Janis"
         f.last_name "Miezitis"
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.created_at Time.now
         f.updated_at Time.now
       end
@@ -588,7 +588,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user, relation: :users) do |f|
         f.first_name "Janis"
         f.last_name "Miezitis"
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.timestamps
       end
 
@@ -614,7 +614,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user, relation: :users) do |f|
         f.first_name "Janis"
         f.last_name "Miezitis"
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.timestamps
       end
 
@@ -645,7 +645,7 @@ RSpec.describe ROM::Factory do
   context "transient" do
     it "supports transient values" do
       factories.define(:user, relation: :users) do |f|
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.password_hash { |password| password.reverse }
         f.transient do |t|
           t.password "secret"
@@ -663,7 +663,7 @@ RSpec.describe ROM::Factory do
 
     it "supports transient sequences" do
       factories.define(:user, relation: :users) do |f|
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.password_hash { |password| password.reverse }
         f.transient do |t|
           t.sequence(:password) { |n| "password#{n}" }
@@ -683,7 +683,7 @@ RSpec.describe ROM::Factory do
 
     it "supports transient callables" do
       factories.define(:user, relation: :users) do |f|
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.password_hash { |password| password.reverse }
         f.transient do |t|
           t.password { %w[sec ret].join }
@@ -702,7 +702,7 @@ RSpec.describe ROM::Factory do
 
   it "supports overwriting transient values" do
     factories.define(:user, relation: :users) do |f|
-      f.email "janjiss@gmail.com"
+      f.email "jane.doe@example.com"
       f.password_hash { |password| password.reverse }
       f.transient do |t|
         t.password "secret"
@@ -736,7 +736,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user, relation: :users) do |f|
         f.first_name "Janis"
         f.last_name "Miezitis"
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.timestamps
       end
 
@@ -758,12 +758,12 @@ RSpec.describe ROM::Factory do
         factories.define(:user) do |f|
           f.first_name "Jane"
           f.last_name "Doe"
-          f.email "jane@doe.org"
+          f.email "jane.doe@example.com"
           f.timestamps
 
           f.trait :admin do |t|
             t.first_name "Admin Jane"
-            t.email "admin@doe.org"
+            t.email "admin.jane@example.com"
           end
         end
 
@@ -776,7 +776,7 @@ RSpec.describe ROM::Factory do
         it "makes traits defined by the parent factory available" do
           expect(factories.structs[:user, :admin].first_name).to eql("Admin Jane")
           expect(factories.structs[:jane, :admin].first_name).to eql("Admin Jane")
-          expect(factories.structs[:jane, :admin].email).to eql("admin@doe.org")
+          expect(factories.structs[:jane, :admin].email).to eql("admin.jane@example.com")
         end
       end
 
@@ -784,7 +784,7 @@ RSpec.describe ROM::Factory do
         it "makes traits defined by the parent factory available" do
           expect(factories[:user, :admin].first_name).to eql("Admin Jane")
           expect(factories[:jane, :admin].first_name).to eql("Admin Jane")
-          expect(factories[:jane, :admin].email).to eql("admin@doe.org")
+          expect(factories[:jane, :admin].email).to eql("admin.jane@example.com")
         end
       end
     end
@@ -796,12 +796,12 @@ RSpec.describe ROM::Factory do
         factories.define(jane: :user) do |f|
           f.first_name "Jane"
           f.last_name "Doe"
-          f.email "jane@doe.org"
+          f.email "jane.doe@example.com"
         end
 
         factories.define(john: :jane) do |f|
           f.first_name "John"
-          f.email "john@doe.org"
+          f.email "john.doe@example.com"
         end
       end
       context "using in-memory structs" do
@@ -810,11 +810,11 @@ RSpec.describe ROM::Factory do
 
         it "sets up a new builder based on another" do
           expect(jane.first_name).to eql("Jane")
-          expect(jane.email).to eql("jane@doe.org")
+          expect(jane.email).to eql("jane.doe@example.com")
 
           expect(john.first_name).to eql("John")
           expect(john.last_name).to eql("Doe")
-          expect(john.email).to eql("john@doe.org")
+          expect(john.email).to eql("john.doe@example.com")
         end
       end
 
@@ -824,11 +824,11 @@ RSpec.describe ROM::Factory do
 
         it "sets up a new builder based on another" do
           expect(jane.first_name).to eql("Jane")
-          expect(jane.email).to eql("jane@doe.org")
+          expect(jane.email).to eql("jane.doe@example.com")
 
           expect(john.first_name).to eql("John")
           expect(john.last_name).to eql("Doe")
-          expect(john.email).to eql("john@doe.org")
+          expect(john.email).to eql("john.doe@example.com")
         end
       end
     end
@@ -852,7 +852,7 @@ RSpec.describe ROM::Factory do
         factories.define(jane: :user) do |f|
           f.first_name "Jane"
           f.last_name "Doe"
-          f.email "jane@doe.org"
+          f.email "jane.doe@example.com"
         end
 
         factories.define({admin: :jane}, struct_namespace: Test::AnotherEntities) do |f|
@@ -861,7 +861,7 @@ RSpec.describe ROM::Factory do
 
         factories.define({john: :jane}, struct_namespace: Test::AnotherEntities) do |f|
           f.first_name "John"
-          f.email "john@doe.org"
+          f.email "john.doe@example.com"
         end
       end
 
@@ -872,17 +872,17 @@ RSpec.describe ROM::Factory do
 
         it "sets up a new builder based on another with correct struct_namespace" do
           expect(jane.first_name).to eql("Jane")
-          expect(jane.email).to eql("jane@doe.org")
+          expect(jane.email).to eql("jane.doe@example.com")
           expect(jane).to be_kind_of(Test::Entities::User)
 
           expect(jane.first_name).to eql("Jane")
-          expect(jane.email).to eql("jane@doe.org")
+          expect(jane.email).to eql("jane.doe@example.com")
           expect(admin.type).to eql("Admin")
           expect(admin).to be_kind_of(Test::AnotherEntities::Admin)
 
           expect(john.first_name).to eql("John")
           expect(john.last_name).to eql("Doe")
-          expect(john.email).to eql("john@doe.org")
+          expect(john.email).to eql("john.doe@example.com")
           expect(john).to be_kind_of(Test::AnotherEntities::User)
         end
       end
@@ -894,17 +894,17 @@ RSpec.describe ROM::Factory do
 
         it "sets up a new builder based on another with correct struct_namespace" do
           expect(jane.first_name).to eql("Jane")
-          expect(jane.email).to eql("jane@doe.org")
+          expect(jane.email).to eql("jane.doe@example.com")
           expect(jane).to be_kind_of(Test::Entities::User)
 
           expect(jane.first_name).to eql("Jane")
-          expect(jane.email).to eql("jane@doe.org")
+          expect(jane.email).to eql("jane.doe@example.com")
           expect(admin.type).to eql("Admin")
           expect(admin).to be_kind_of(Test::AnotherEntities::Admin)
 
           expect(john.first_name).to eql("John")
           expect(john.last_name).to eql("Doe")
-          expect(john.email).to eql("john@doe.org")
+          expect(john.email).to eql("john.doe@example.com")
           expect(john).to be_kind_of(Test::AnotherEntities::User)
         end
       end
@@ -918,7 +918,7 @@ RSpec.describe ROM::Factory do
 
         f.trait :jane do |t|
           t.first_name "Jane"
-          t.email "jane@doe.org"
+          t.email "jane.doe@example.com"
         end
 
         f.trait :doe do |t|
@@ -930,13 +930,13 @@ RSpec.describe ROM::Factory do
 
       expect(jane.first_name).to eql("Jane")
       expect(jane.last_name).to eql nil
-      expect(jane.email).to eql("jane@doe.org")
+      expect(jane.email).to eql("jane.doe@example.com")
 
       jane_doe = factories.structs[:user, :jane, :doe]
 
       expect(jane_doe.first_name).to eql("Jane")
       expect(jane_doe.last_name).to eql("Doe")
-      expect(jane_doe.email).to eql("jane@doe.org")
+      expect(jane_doe.email).to eql("jane.doe@example.com")
     end
 
     it "allows to define nested traits" do
@@ -945,7 +945,7 @@ RSpec.describe ROM::Factory do
 
         f.trait :jane do |t|
           t.first_name "Jane"
-          t.email "jane@doe.org"
+          t.email "jane.doe@example.com"
         end
 
         f.trait :jane_doe, %i[jane] do |t|
@@ -957,7 +957,7 @@ RSpec.describe ROM::Factory do
 
       expect(jane.first_name).to eql("Jane")
       expect(jane.last_name).to eql("Doe")
-      expect(jane.email).to eql("jane@doe.org")
+      expect(jane.email).to eql("jane.doe@example.com")
     end
 
     it "allows to define traits for persisted" do
@@ -966,7 +966,7 @@ RSpec.describe ROM::Factory do
 
         f.trait :jane do |t|
           t.first_name "Jane"
-          t.email "jane@doe.org"
+          t.email "jane.doe@example.com"
         end
 
         f.trait :doe do |t|
@@ -978,7 +978,7 @@ RSpec.describe ROM::Factory do
 
       expect(jane.first_name).to eql("Jane")
       expect(jane.last_name).to eql("Doe")
-      expect(jane.email).to eql("jane@doe.org")
+      expect(jane.email).to eql("jane.doe@example.com")
     end
 
     it "allows to define traits with associations" do
@@ -991,7 +991,7 @@ RSpec.describe ROM::Factory do
 
         f.trait :jane do |t|
           t.first_name "Jane"
-          t.email "jane@doe.org"
+          t.email "jane.doe@example.com"
         end
 
         f.trait :doe do |t|
@@ -1010,7 +1010,7 @@ RSpec.describe ROM::Factory do
 
       expect(user_with_tasks.first_name).to eql("Jane")
       expect(user_with_tasks.last_name).to eql("Doe")
-      expect(user_with_tasks.email).to eql("jane@doe.org")
+      expect(user_with_tasks.email).to eql("jane.doe@example.com")
 
       expect(user_with_tasks.tasks.count).to be(2)
 
@@ -1136,7 +1136,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user) do |f|
         f.first_name "Jane"
         f.last_name "Doe"
-        f.email "jane@doe.org"
+        f.email "jane.doe@example.com"
         f.timestamps
       end
 
@@ -1159,7 +1159,7 @@ RSpec.describe ROM::Factory do
           factories.define(:user) do |f|
             f.first_name "Jane"
             f.last_name "Doe"
-            f.email "jane@doe.org"
+            f.email "jane.doe@example.com"
             f.timestamps
             f.association(:tasks, :important, count: 2)
           end
@@ -1192,7 +1192,7 @@ RSpec.describe ROM::Factory do
           factories.define(:user) do |f|
             f.first_name "Jane"
             f.last_name "Doe"
-            f.email "jane@doe.org"
+            f.email "jane.doe@example.com"
             f.timestamps
             f.association(:tasks, count: 2, traits: [:important])
           end
@@ -1218,7 +1218,7 @@ RSpec.describe ROM::Factory do
           factories.define(:user) do |f|
             f.first_name "Jane"
             f.last_name "Doe"
-            f.email "jane@doe.org"
+            f.email "jane.doe@example.com"
             f.timestamps
             f.association(:tasks, count: 2)
           end
@@ -1248,7 +1248,7 @@ RSpec.describe ROM::Factory do
           factories.define(:user) do |f|
             f.first_name "Jane"
             f.last_name "Doe"
-            f.email "jane@doe.org"
+            f.email "jane.doe@example.com"
             f.timestamps
             f.association(:tasks, count: 0)
           end
@@ -1278,7 +1278,7 @@ RSpec.describe ROM::Factory do
           factories.define(:user) do |f|
             f.first_name "Jane"
             f.last_name "Doe"
-            f.email "jane@doe.org"
+            f.email "jane.doe@example.com"
             f.timestamps
             f.association(:addresses, count: 2)
           end
@@ -1314,7 +1314,7 @@ RSpec.describe ROM::Factory do
           factories.define(:user) do |f|
             f.first_name "Jane"
             f.last_name "Doe"
-            f.email "jane@doe.org"
+            f.email "jane.doe@example.com"
             f.timestamps
             f.association(:addresses, count: 0)
           end
@@ -1343,7 +1343,7 @@ RSpec.describe ROM::Factory do
         factories.define(:user) do |f|
           f.first_name "Jane"
           f.last_name "Doe"
-          f.email "jane@doe.org"
+          f.email "jane.doe@example.com"
           f.timestamps
         end
 
@@ -1435,7 +1435,7 @@ RSpec.describe ROM::Factory do
         factories.define(:user) do |f|
           f.first_name "Jane"
           f.last_name "Doe"
-          f.email "jane@doe.org"
+          f.email "jane.doe@example.com"
           f.timestamps
         end
       end
@@ -1449,7 +1449,7 @@ RSpec.describe ROM::Factory do
           expect(result.id).to be(1)
           expect(result.first_name).to eql("Jane")
           expect(result.last_name).to eql("Doe")
-          expect(result.email).to eql("jane@doe.org")
+          expect(result.email).to eql("jane.doe@example.com")
           expect(result.created_at).to_not be(nil)
           expect(result.updated_at).to_not be(nil)
         end
@@ -1464,7 +1464,7 @@ RSpec.describe ROM::Factory do
           expect(result.id).to be(1)
           expect(result.first_name).to eql("Jane")
           expect(result.last_name).to eql("Doe")
-          expect(result.email).to eql("jane@doe.org")
+          expect(result.email).to eql("jane.doe@example.com")
           expect(result.created_at).to_not be(nil)
           expect(result.updated_at).to_not be(nil)
         end
@@ -1483,7 +1483,7 @@ RSpec.describe ROM::Factory do
         factories.define(:user, struct_namespace: Test::Entities) do |f|
           f.first_name "Jane"
           f.last_name "Doe"
-          f.email "jane@doe.org"
+          f.email "jane.doe@example.com"
           f.timestamps
         end
       end
@@ -1497,7 +1497,7 @@ RSpec.describe ROM::Factory do
           expect(result.id).to be(1)
           expect(result.first_name).to eql("Jane")
           expect(result.last_name).to eql("Doe")
-          expect(result.email).to eql("jane@doe.org")
+          expect(result.email).to eql("jane.doe@example.com")
           expect(result.created_at).to_not be(nil)
           expect(result.updated_at).to_not be(nil)
         end
@@ -1512,7 +1512,7 @@ RSpec.describe ROM::Factory do
           expect(result.id).to be(1)
           expect(result.first_name).to eql("Jane")
           expect(result.last_name).to eql("Doe")
-          expect(result.email).to eql("jane@doe.org")
+          expect(result.email).to eql("jane.doe@example.com")
           expect(result.created_at).to_not be(nil)
           expect(result.updated_at).to_not be(nil)
         end
@@ -1535,7 +1535,7 @@ RSpec.describe ROM::Factory do
         factories.define(:user) do |f|
           f.first_name "Jane"
           f.last_name "Doe"
-          f.email "jane@doe.org"
+          f.email "jane.doe@example.com"
           f.timestamps
         end
       end
@@ -1549,7 +1549,7 @@ RSpec.describe ROM::Factory do
           expect(result.id).to be(1)
           expect(result.first_name).to eql("Jane")
           expect(result.last_name).to eql("Doe")
-          expect(result.email).to eql("jane@doe.org")
+          expect(result.email).to eql("jane.doe@example.com")
           expect(result.created_at).to_not be(nil)
           expect(result.updated_at).to_not be(nil)
         end
@@ -1564,7 +1564,7 @@ RSpec.describe ROM::Factory do
           expect(result.id).to be(1)
           expect(result.first_name).to eql("Jane")
           expect(result.last_name).to eql("Doe")
-          expect(result.email).to eql("jane@doe.org")
+          expect(result.email).to eql("jane.doe@example.com")
           expect(result.created_at).to_not be(nil)
           expect(result.updated_at).to_not be(nil)
         end
@@ -1590,7 +1590,7 @@ RSpec.describe ROM::Factory do
         factories.define(:user, struct_namespace: Test::AnotherEntities) do |f|
           f.first_name "Jane"
           f.last_name "Doe"
-          f.email "jane@doe.org"
+          f.email "jane.doe@example.com"
           f.timestamps
         end
       end
@@ -1604,7 +1604,7 @@ RSpec.describe ROM::Factory do
           expect(result.id).to be(1)
           expect(result.first_name).to eql("Jane")
           expect(result.last_name).to eql("Doe")
-          expect(result.email).to eql("jane@doe.org")
+          expect(result.email).to eql("jane.doe@example.com")
           expect(result.created_at).to_not be(nil)
           expect(result.updated_at).to_not be(nil)
         end
@@ -1619,7 +1619,7 @@ RSpec.describe ROM::Factory do
           expect(result.id).to be(1)
           expect(result.first_name).to eql("Jane")
           expect(result.last_name).to eql("Doe")
-          expect(result.email).to eql("jane@doe.org")
+          expect(result.email).to eql("jane.doe@example.com")
           expect(result.created_at).to_not be(nil)
           expect(result.updated_at).to_not be(nil)
         end
@@ -1651,7 +1651,7 @@ RSpec.describe ROM::Factory do
       factories.define(:user) do |f|
         f.first_name "Janis"
         f.last_name "Miezitis"
-        f.email "janjiss@gmail.com"
+        f.email "jane.doe@example.com"
         f.timestamps
       end
 
