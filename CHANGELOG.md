@@ -17,11 +17,17 @@ and this project adheres to [Break Versioning](https://www.taoensso.com/break-ve
 
 ### Fixed
 
-- Child factories inherit traits from parent. (@alassek in #100)
-
 ### Security
 
-[Unreleased]: https://github.com/rom-rb/rom-factory/compare/v0.14.0...main
+[Unreleased]: https://github.com/hanakai-rb/rom-factory/compare/v0.14.1...main
+
+## [0.14.1] - 2026-10-08
+
+## Fixed
+
+- Child factories inherit traits from parent. (@alassek in #100)
+
+[0.14.1]: https://github.com/hanakai-rb/rom-factory/compare/v0.14.0...v0.14.1
 
 ## [0.14.0] - 2026-10-03
 
